@@ -1,5 +1,3 @@
-# @datatype_void
-
 # Ignore Documentation
 docs
 
@@ -73,5 +71,6 @@ npm-debug.log
 
 # Temporary Files #
 .tmp
+.tscache
 .sass-cache
 *.swp

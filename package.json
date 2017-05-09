@@ -2,7 +2,7 @@
   "name": "cinenode",
   "version": "1.0.0",
   "description": "Example of a simple Node.js application",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "dev": "NODE_ENV=development nodemon ./config/server.conf",
     "grunt": "grunt",
@@ -47,6 +47,7 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-ts": "^6.0.0-beta.15",
+    "nodemon": "^1.11.0",
     "typescript": "^2.3.2"
   }
 }
