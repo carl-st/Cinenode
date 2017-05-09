@@ -4,8 +4,8 @@ import * as express from "express";
 import * as path from "path";
 import errorHandler = require("errorhandler");
 import methodOverride = require("method-override");
-import {IndexRouter} from "./index";
 import morgan = require("morgan");
+import mongooseConf from "../config/mongoose.conf";
 
 /**
  * The server.
@@ -41,11 +41,11 @@ export class Server {
         //configure application
         this.config();
 
-        //add routes
-        this.routes();
-
         //add api
         this.api();
+
+        //configure mongoose
+        this.mongooseConf();
     }
 
     /**
@@ -99,20 +99,7 @@ export class Server {
         this.app.use(errorHandler());
     }
 
-    /**
-     * Create router
-     *
-     * @class Server
-     * @method api
-     */
-    public routes() {
-        let router: express.Router;
-        router = express.Router();
-
-        //IndexRoute
-        IndexRouter.create(router);
-
-        //use router middleware
-        this.app.use(router);
+    private mongooseConf() {
+        mongooseConf();
     }
 }

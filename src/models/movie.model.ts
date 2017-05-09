@@ -2,33 +2,33 @@
  * Created by Karol on 09.05.2017.
  */
 
-import * as mongoose from 'mongoose';
+import * as mongoose from "mongoose";
 
 interface IMovie {
-    title: string,
-    year: number,
-    rated: string,
-    released: string,
-    runtime: string,
-    genre: string,
-    director: string,
-    writer: string,
-    actors: string,
-    plot: string,
-    language: string,
-    country: string,
-    awards: string,
-    poster: string,
-    ratings: mongoose.Schema.Types.ObjectId[],
-    metascore: number,
-    imdbRating: number,
-    imdbVotes: string,
-    imdbId: string,
-    type: string,
-    boxOffice: string,
-    production: string,
-    website: string,
-    response: boolean
+    title: string;
+    year: number;
+    rated: string;
+    released: string;
+    runtime: string;
+    genre: string;
+    director: string;
+    writer: string;
+    actors: string;
+    plot: string;
+    language: string;
+    country: string;
+    awards: string;
+    poster: string;
+    ratings: mongoose.Schema.Types.ObjectId[];
+    metascore: number;
+    imdbRating: number;
+    imdbVotes: string;
+    imdbId: string;
+    type: string;
+    boxOffice: string;
+    production: string;
+    website: string;
+    response: boolean;
 }
 
 export class Movie {
@@ -57,7 +57,7 @@ export class Movie {
     website: string;
     response: boolean;
 
-    constructor(data) {
+    constructor(data: any) {
         this.title = data.title;
         this.year = data.year;
         this.rated = data.rated;
@@ -113,4 +113,4 @@ let movieSchema = new mongoose.Schema({
 });
 
 export interface MovieDocument extends Movie, mongoose.Document { }
-export let Movies = mongoose.model<MovieDocument>('Movie', movieSchema);
+export let movies = mongoose.model<MovieDocument>("Movie", movieSchema);
