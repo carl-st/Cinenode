@@ -6,6 +6,7 @@ import errorHandler = require("errorhandler");
 import methodOverride = require("method-override");
 import morgan = require("morgan");
 import mongooseConf from "../config/mongoose.conf";
+import routeConf from "./routes/routes";
 
 /**
  * The server.
@@ -41,21 +42,11 @@ export class Server {
         //configure application
         this.config();
 
-        //add api
-        this.api();
-
         //configure mongoose
         this.mongooseConf();
-    }
 
-    /**
-     * Create REST API routes
-     *
-     * @class Server
-     * @method api
-     */
-    public api() {
-        //empty for now
+        //configure routers
+        this.routes(this.app);
     }
 
     /**
@@ -101,5 +92,9 @@ export class Server {
 
     private mongooseConf() {
         mongooseConf();
+    }
+
+    private routes(app: express.Application) {
+        routeConf(app);
     }
 }

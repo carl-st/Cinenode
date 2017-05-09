@@ -6,22 +6,22 @@ import * as mongoose from "mongoose";
 
 interface IComment {
     movie: mongoose.Schema.Types.ObjectId;
-    text: string;
+    content: string;
 }
 
 export class Comment implements IComment {
     movie: mongoose.Schema.Types.ObjectId;
-    text: string;
+    content: string;
 
     constructor(data: any) {
         this.movie = data.movie;
-        this.text = data.text;
+        this.content = data.content;
     }
 }
 
 let commentSchema = new mongoose.Schema({
     movie: mongoose.Schema.Types.ObjectId,
-    text: String
+    content: String
 });
 
 

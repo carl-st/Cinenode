@@ -58,10 +58,32 @@ export class BaseRouter {
             if (err) {
                 res.send(err);
             }
-        }).populate("movie ratings")
+        }).populate("movie")
             .exec((err, item) => {
                 res.json(item);
             });
+    }
+
+    protected findByTitleAndCreateOrUpdate(req: express.Request,
+                                           res: express.Response,
+                                           next: express.NextFunction,
+                                           title: any,
+                                           newData: any) {
+        this.model.findOneAndUpdate({
+            "title": title
+        }, newData, {
+            upsert: true,
+            new: true
+        }, (err, item) => {
+            if (err) {
+                res.send(err);
+                console.log(err);
+            } else {
+                res.json(item);
+                console.log(`Item created or updated: ${item}`);
+            }
+
+        });
     }
 
     protected create(req: express.Request,

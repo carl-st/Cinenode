@@ -19,13 +19,13 @@ interface IMovie {
     country: string;
     awards: string;
     poster: string;
-    ratings: mongoose.Schema.Types.ObjectId[];
+    ratings: mongoose.Schema.Types.Mixed[];
     metascore: number;
-    imdbRating: number;
-    imdbVotes: string;
-    imdbId: string;
+    imdbrating: number;
+    imdbvotes: string;
+    imdbid: string;
     type: string;
-    boxOffice: string;
+    boxoffice: string;
     production: string;
     website: string;
     response: boolean;
@@ -46,13 +46,13 @@ export class Movie {
     country: string;
     awards: string;
     poster: string;
-    ratings: mongoose.Schema.Types.ObjectId[];
+    ratings: mongoose.Schema.Types.Mixed[];
     metascore: number;
-    imdbRating: number;
-    imdbVotes: string;
-    imdbId: string;
+    imdbrating: number;
+    imdbvotes: string;
+    imdbid: string;
     type: string;
-    boxOffice: string;
+    boxoffice: string;
     production: string;
     website: string;
     response: boolean;
@@ -68,17 +68,17 @@ export class Movie {
         this.writer = data.writer;
         this.actors = data.actors;
         this.plot = data.plot;
-        this.language = data.label;
+        this.language = data.language;
         this.country = data.country;
         this.awards = data.awards;
         this.poster = data.poster;
         this.ratings = data.ratings;
         this.metascore = data.metascore;
-        this.imdbRating = data.imdbRating;
-        this.imdbVotes = data.imdbVotes;
-        this.imdbId = data.imdbId;
+        this.imdbrating = data.imdbrating;
+        this.imdbvotes = data.imdbvotes;
+        this.imdbid = data.imdbid;
         this.type = data.type;
-        this.boxOffice = data.boxOffice;
+        this.boxoffice = data.boxoffice;
         this.production = data.production;
         this.website = data.website;
         this.response = data.response;
@@ -87,7 +87,10 @@ export class Movie {
 
 let movieSchema = new mongoose.Schema({
     title: String,
-    year: Number,
+    year: {
+        type: Number,
+        default: 0
+    },
     rated: String,
     released: String,
     runtime: String,
@@ -100,13 +103,19 @@ let movieSchema = new mongoose.Schema({
     country: String,
     awards: String,
     poster: String,
-    ratings: [mongoose.Schema.Types.ObjectId],
-    metascore: Number,
-    imdbRating: Number,
-    imdbVotes: String,
-    imdbId: String,
+    ratings: [mongoose.Schema.Types.Mixed],
+    metascore: {
+        type: Number,
+        default: 0
+    },
+    imdbrating: {
+        type: Number,
+        default: 0
+    },
+    imdbvotes: String,
+    imdbid: String,
     type: String,
-    boxOffice: String,
+    boxoffice: String,
     production: String,
     website: String,
     response: Boolean

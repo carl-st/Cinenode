@@ -14,6 +14,8 @@ export default function mongooseConf() {
             throw error;
         }
 
+        console.log("mongo connected");
+
     });
 
 }

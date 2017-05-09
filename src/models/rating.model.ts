@@ -15,7 +15,7 @@ export class Rating implements IRating {
 
     constructor(data: any) {
         this.source = data.movie;
-        this.value = data.text;
+        this.value = data.content;
     }
 }
 
@@ -26,4 +26,4 @@ let visitTypeSchema = new mongoose.Schema({
 
 
 export interface RatingDocument extends Rating, mongoose.Document { }
-export let ratings = mongoose.model<RatingDocument>("Comment", visitTypeSchema);
+export let ratings = mongoose.model<RatingDocument>("Rating", visitTypeSchema);

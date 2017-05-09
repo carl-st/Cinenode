@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 
-var server = require("../dist/server");
+var server = require("../dist/src/server");
 var debug = require("debug")("express:server");
 var http = require("http");
 

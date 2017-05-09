@@ -36,6 +36,7 @@
     "method-override": "^2.3.8",
     "mongoose": "^4.9.8",
     "morgan": "^1.8.1",
+    "nodecaller": "^0.1.9",
     "pug": "^2.0.0-rc.1",
     "tslint": "^5.2.0"
   },
