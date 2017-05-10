@@ -7,7 +7,6 @@ import movie = require("../models/movie.model");
 import movies = movie.movies;
 import Movie = movie.Movie;
 import Caller = require("nodecaller");
-import request = require("request");
 
 const BASE_URI = "/movies";
 
