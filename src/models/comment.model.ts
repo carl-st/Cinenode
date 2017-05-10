@@ -4,7 +4,7 @@
 
 import * as mongoose from "mongoose";
 
-interface IComment {
+export interface IComment {
     movie: mongoose.Schema.Types.ObjectId;
     content: string;
 }
