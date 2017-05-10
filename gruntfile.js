@@ -16,6 +16,18 @@ module.exports = function (grunt) {
                         cwd: "./views",
                         src: ["**"],
                         dest: "./dist/views"
+                    },
+                    {
+                        expand: true,
+                        cwd: "./config",
+                        src: ["**"],
+                        dest: "./dist/config"
+                    },
+                    {
+                        expand: true,
+                        cwd: "./config",
+                        src: ["config/\*\*/\*.js"],
+                        dest: "./dist"
                     }
                 ]
             }
@@ -23,7 +35,7 @@ module.exports = function (grunt) {
         ts: {
             app: {
                 files: [{
-                    src: ["src/\*\*/\*.ts", "!src/.baseDir.ts"],
+                    src: ["config/\*\*/\*.ts" ,"src/\*\*/\*.ts", "!src/.baseDir.ts"],
                     dest: "./dist"
                 }],
                 options: {
