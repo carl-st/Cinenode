@@ -64,6 +64,22 @@ export class BaseRouter {
             });
     }
 
+    protected getByMovie(req: express.Request,
+                         res: express.Response,
+                         next: express.NextFunction,
+                         movieId: any) {
+        this.model.find({
+            "movie": movieId
+        }, (err, item) => {
+            if (err) {
+                res.send(err);
+            }
+        }).populate("movie")
+            .exec((err, item) => {
+                res.json(item);
+            });
+    }
+
     protected findByTitleAndCreateOrUpdate(req: express.Request,
                                            res: express.Response,
                                            next: express.NextFunction,

@@ -20,8 +20,15 @@ export class Comment implements IComment {
 }
 
 let commentSchema = new mongoose.Schema({
-    movie: mongoose.Schema.Types.ObjectId,
-    content: String
+    movie: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: "movie Id is required",
+        ref: "Movie"
+    },
+    content: {
+        type: String,
+        required: "comment text is required"
+    }
 });
 
 

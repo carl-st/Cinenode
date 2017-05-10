@@ -26,6 +26,13 @@ module Route {
                  next: express.NextFunction) => {
                     super.getAll(req, res, next);
                 });
+            router.get(`${BASE_URI}/movie`,
+                (req: express.Request,
+                 res: express.Response,
+                 next: express.NextFunction) => {
+                    let movieId = req.query.id;
+                    super.getByMovie(req, res, next, movieId);
+                });
             router.post(BASE_URI,
                 (req: express.Request,
                  res: express.Response,
@@ -37,7 +44,6 @@ module Route {
                     super.create(req, res, next, comment);
                 });
         }
-
     }
 }
 

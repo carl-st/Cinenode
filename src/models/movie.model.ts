@@ -31,7 +31,7 @@ interface IMovie {
     response: boolean;
 }
 
-export class Movie {
+export class Movie implements IMovie {
     title: string;
     year: number;
     rated: string;

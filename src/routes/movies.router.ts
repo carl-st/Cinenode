@@ -8,9 +8,6 @@ import movies = movie.movies;
 import Movie = movie.Movie;
 import Caller = require("nodecaller");
 import request = require("request");
-import rating = require("../models/rating.model");
-import Rating = rating.Rating;
-import ratingsModel = rating.ratings;
 
 const BASE_URI = "/movies";
 
@@ -35,8 +32,13 @@ module Route {
                 (req: express.Request,
                  res: express.Response,
                  next: express.NextFunction) => {
-                    console.log("Title:" + req.body.title);
-                    this.downloadMovieData(req, res, next, req.body);
+                    if (req.body.title) {
+                        console.log("Title:" + req.body.title);
+                        this.downloadMovieData(req, res, next, req.body);
+                    } else {
+                        res.status(400).send("movie title is required");
+                    }
+
                 });
         }
 
@@ -65,7 +67,6 @@ module Route {
             });
             caller.run();
         }
-
     }
 }
 
