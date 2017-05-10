@@ -4,7 +4,7 @@
 
 import * as mongoose from "mongoose";
 
-interface IMovie {
+export interface IMovie {
     title: string;
     year: number;
     rated: string;

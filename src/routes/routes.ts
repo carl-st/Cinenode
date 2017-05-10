@@ -9,7 +9,6 @@ import * as commentsRouter from "./comments.router";
 export default (app: express.Application) => {
     let router: express.Router;
     router = express.Router();
-    console.log("configuring routes");
 
     let index: indexRouter.Routes = new indexRouter.Routes(this.app, router);
     let movies: movieRouter.Routes = new movieRouter.Routes(this.app, router);
