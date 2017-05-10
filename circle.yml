@@ -1,0 +1,6 @@
+test:
+  pre:
+    - npm run grunt
+  override:
+    - npm test
+ 
