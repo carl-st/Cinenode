@@ -4,34 +4,7 @@
 
 import * as mongoose from "mongoose";
 
-export interface IMovie {
-    title: string;
-    year: number;
-    rated: string;
-    released: string;
-    runtime: string;
-    genre: string;
-    director: string;
-    writer: string;
-    actors: string;
-    plot: string;
-    language: string;
-    country: string;
-    awards: string;
-    poster: string;
-    ratings: mongoose.Schema.Types.Mixed[];
-    metascore: number;
-    imdbrating: number;
-    imdbvotes: string;
-    imdbid: string;
-    type: string;
-    boxoffice: string;
-    production: string;
-    website: string;
-    response: boolean;
-}
-
-export class Movie implements IMovie {
+export class Movie {
     title: string;
     year: number;
     rated: string;

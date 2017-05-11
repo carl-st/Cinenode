@@ -8,9 +8,10 @@ import comments = commentModel.comments;
 import Comment = commentModel.Comment;
 import mongoose = require("mongoose");
 import Caller = require("nodecaller");
+import utils = require("./test.utils");
 
-let url = "http://localhost:8080/api/comment";
-let caller = new Caller(url);
+let path = "http://localhost:8080/api/comments";
+let caller = new Caller(path);
 
 let chai = require("chai");
 chai.should();
@@ -21,22 +22,35 @@ let data = {
 
 let comment: Comment = new Comment(data);
 
-describe("Comment Model Unit Tests", function () {
-    it("should be able to save without problems", function () {
-        comments.create({}, function (err: any, result: any) {
-            var exists = err.should.not.exist;
-            exists = result._id.should.exist;
-            result.content.should.equal(comment.content);
+describe("Comment Tests", function () {
+
+    before(function (done: any) {
+        utils.connectAndClean(done);
+    });
+
+    after(function (done: any) {
+        utils.disconnect(done);
+    });
+
+    describe("Comment Model Unit Tests", function () {
+        it("should be able to save comment without problems", function () {
+            comments.create({}, function (err: any, result: any) {
+                let exists = err.should.not.exist;
+                exists = result._id.should.exist;
+                result.content.should.equal(comment.content);
+            });
         });
     });
+
+    describe("Comment API Unit Tests", function () {
+        it("should show all comments", function (done: any) {
+            caller.get((result, next) => {
+                let exists = result.body[0].content.should.exist;
+                next();
+            }, 200);
+            caller.run(done);
+        });
+    });
+
 });
 
-describe("Comment API Unit Tests", function () {
-    it("should show all comments", function (done: any) {
-        caller.get((result, next) => {
-            let exists = result.body[0].content.should.exist;
-            next();
-        }, 200);
-        caller.run(done);
-    });
-});

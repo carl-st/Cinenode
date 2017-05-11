@@ -1,27 +1,25 @@
 #!/usr/bin/env node
 "use strict";
 
-var server = require("../dist/src/server");
-var debug = require("debug")("express:server");
-var http = require("http");
+let server = require("../dist/src/server");
+let debug = require("debug")("express:server");
+let http = require("http");
 
-var envConf = require("../dist/config/env.conf");
+let envConf = require("../dist/config/env.conf");
 
 envConf.validateEnvVariables();
 
-var port = normalizePort(process.env.PORT) !== undefined ?
+let port = normalizePort(process.env.PORT) !== undefined ?
     normalizePort(process.env.PORT) : 8080;
-var app = server.Server.bootstrap().app;
-app.set("port", port);
-var httpServer = http.createServer(app);
 
+let app = server.Server.bootstrap().app;
+app.set("port", port);
+
+let httpServer = http.createServer(app);
 httpServer.listen(port);
 httpServer.on("error", onError);
 httpServer.on("listening", onListening);
 
-/**
- * Event listener for HTTP server "error" event.
- */
 function onError(error) {
     if (error.syscall !== "listen") {
         throw error;
@@ -46,9 +44,6 @@ function onError(error) {
     }
 }
 
-/**
- * Normalize a port into a number, string, or false.
- */
 function normalizePort(input) {
     let port = parseInt(input, 10);
 
@@ -65,10 +60,6 @@ function normalizePort(input) {
     return false;
 }
 
-
-/**
- * Event listener for HTTP server "listening" event.
- */
 function onListening() {
     let addr = httpServer.address();
     let bind = typeof addr === "string"
