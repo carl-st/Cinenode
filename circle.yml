@@ -1,9 +1,4 @@
-machine:
-  services:
-    - mongodb
 test:
-  pre:
-    - sudo service mongod status || sudo service mongod start
   override:
     - npm test
  
