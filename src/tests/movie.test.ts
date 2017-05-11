@@ -14,7 +14,8 @@ let path = "http://localhost:8080/api/movies";
 let caller = new Caller(path);
 
 let chai = require("chai");
-chai.should();
+// chai.should();
+var expect = chai.expect;
 
 let data = {
     title: "Guardians of the Galaxy",
@@ -25,21 +26,19 @@ let movie: Movie = new Movie(data);
 
 describe("Movie Tests", function () {
 
-    before(function (done: any) {
+    beforeEach(function (done: any) {
         utils.connectAndClean(done);
     });
 
-    after(function (done: any) {
-       utils.disconnect(done);
+    afterEach(function (done: any) {
+        utils.disconnect(done);
     });
 
     describe("Movie Model Unit Tests", function () {
         it("should be able to save movie without problems", function () {
-            movies.create({}, function (err: any, result: any) {
-                let exists = err.should.not.exist;
-                exists = result._id.should.exist;
-                result.title.should.equal(movie.title);
-                result.actors.should.equal(movie.actors);
+            movies.create(movie, function (err: any, result: any) {
+                expect(result.actors).to.equal(movie.actors);
+                expect(result.title).to.equal(movie.title);
             });
         });
     });
@@ -49,8 +48,8 @@ describe("Movie Tests", function () {
             caller.post({
                 "title": "guardians of the galaxy"
             }, (result, next) => {
-                result.body.title.should.equal(movie.title);
-                result.body.actors.should.equal(movie.actors);
+                expect(result.body).to.have.property("title");
+                expect(result.body).to.have.property("actors");
                 next();
             });
             caller.run(done);

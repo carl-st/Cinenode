@@ -7,7 +7,7 @@
     "dev": "NODE_ENV=development nodemon ./config/server.conf",
     "grunt": "grunt",
     "start": "node ./config/server.conf",
-    "test": "mocha dist/src/tests"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -54,6 +54,8 @@
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-express-server": "^0.5.3",
+    "grunt-mocha-test": "^0.13.2",
     "grunt-ts": "^6.0.0-beta.15",
     "mocha": "^3.3.0",
     "nodemon": "^1.11.0",

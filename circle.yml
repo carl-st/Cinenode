@@ -1,9 +1,9 @@
+machine:
+  services:
+    - mongodb
 test:
   pre:
-    - npm run grunt
-    - npm start:
-        background: true
-    - sleep 10
+    - sudo service mongod status || sudo service mongod start
   override:
     - npm test
  

@@ -24,17 +24,17 @@ let comment: Comment = new Comment(data);
 
 describe("Comment Tests", function () {
 
-    before(function (done: any) {
+    beforeEach(function (done: any) {
         utils.connectAndClean(done);
     });
 
-    after(function (done: any) {
+    afterEach(function (done: any) {
         utils.disconnect(done);
     });
 
     describe("Comment Model Unit Tests", function () {
         it("should be able to save comment without problems", function () {
-            comments.create({}, function (err: any, result: any) {
+            comments.create(comment, function (err: any, result: any) {
                 let exists = err.should.not.exist;
                 exists = result._id.should.exist;
                 result.content.should.equal(comment.content);

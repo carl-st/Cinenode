@@ -15,7 +15,10 @@ let port = normalizePort(process.env.PORT) !== undefined ?
 let app = server.Server.bootstrap().app;
 app.set("port", port);
 
-let httpServer = http.createServer(app);
+let httpServer = http.createServer( app ).listen( process.env.PORT, function() {
+  console.log('Express server listening on port ' + process.env.PORT);
+});
+
 httpServer.listen(port);
 httpServer.on("error", onError);
 httpServer.on("listening", onListening);
