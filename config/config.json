@@ -1,0 +1,9 @@
+{
+  "ENV": "development",
+  "PORT" : 8080,
+  "MONGO_URI": {
+    "DEVELOPMENT": "mongodb://localhost:27017/cinenode",
+    "PRODUCTION": "mongodb://localhost:27017/cinenode",
+    "TEST": "mongodb://localhost:27017/cinenode"
+  }
+}

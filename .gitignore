@@ -1,9 +1,6 @@
 # Ignore Documentation
 docs
 
-# Ignore Node env variables
-config/config.json
-
 # Ignore file-loader directory
 res
 
@@ -74,3 +71,8 @@ npm-debug.log
 .tscache
 .sass-cache
 *.swp
+
+.baseDir.ts
+.baseDir.d.ts
+.baseDir.js
+.baseDir.js.map
