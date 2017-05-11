@@ -25,7 +25,13 @@ module Route {
                 (req: express.Request,
                  res: express.Response,
                  next: express.NextFunction) => {
-                    super.getAll(req, res, next);
+                    if (req.query.field) {
+                        let sortBy = req.query.sortBy;
+                        let desc = req.query.desc;
+                        super.getAllSortedByField(req, res, next, sortBy, desc);
+                    } else {
+                        super.getAll(req, res, next);
+                    }
                 });
             router.post(BASE_URI,
                 (req: express.Request,
@@ -37,7 +43,6 @@ module Route {
                     } else {
                         res.status(400).send("movie title is required");
                     }
-
                 });
         }
 

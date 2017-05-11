@@ -1,9 +1,9 @@
-# Cinenode
+# Cinenode [![CircleCI](https://circleci.com/gh/carl-st/Cinenode/tree/develop.svg?style=svg&circle-token=ab573641d88bafcb8c96f225dc9edabe6fcaf4cd)](https://circleci.com/gh/carl-st/Cinenode/tree/develop)
 Example of a simple Node.js application with Express and MongoDB.
  
 ## Setup ##
 **Make sure you have the newest Node and NPM already installed.**
-### Dependiencies installation
+### Dependencies installation
 ```bash
 $ npm install
 
@@ -40,6 +40,7 @@ See `config.json` and set the `ENV` field to `development`, `testing` or `produc
     * Request body: `{ "title": string }`
 * GET /movies
     * Fetches list of all movies already present in application database.
+    * Optional params: `sortBy = string`, `desc = boolean`
 * POST /comments
     * Adds a comment to given movie id
     * Request body: `{ "movie": string, "content": string }`

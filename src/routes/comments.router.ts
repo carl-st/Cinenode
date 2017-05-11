@@ -7,7 +7,7 @@ import comment = require("../models/comment.model");
 import comments = comment.comments;
 import Comment = comment.Comment;
 
-const BASE_URI = "/comment";
+const BASE_URI = "/comments";
 
 module Route {
 

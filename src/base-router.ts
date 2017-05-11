@@ -40,6 +40,22 @@ export class BaseRouter {
             });
     }
 
+    protected getAllSortedByField(req: express.Request,
+                                  res: express.Response,
+                                  next: express.NextFunction,
+                                  field: String,
+                                  desc: String) {
+        let isTrueSet = (desc === "true");
+        this.model.find((err, item) => {
+            if (err) {
+                res.send(err);
+            }
+        }).sort([[`${field}`, isTrueSet === true ? -1 : 1]]).populate("movie")
+            .exec((err, item) => {
+                res.json(item);
+            });
+    }
+
     protected getByMovie(req: express.Request,
                          res: express.Response,
                          next: express.NextFunction,
