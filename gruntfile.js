@@ -65,7 +65,7 @@ module.exports = function (grunt) {
     },
     express: {
       options: {
-        port: 8080
+        port: 8080,
       },
       dev: {
         options: {
@@ -99,7 +99,7 @@ module.exports = function (grunt) {
     "copy",
     "ts",
     "tslint",
-    "express:dev"
+    "express"
   ]);
 
   grunt.registerTask("test", ["server", "mochaTest"]);
