@@ -1,6 +1,9 @@
 test:
   pre:
     - npm run grunt
+    - npm start:
+        background: true
+    - sleep 10
   override:
     - npm test
  
