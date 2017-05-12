@@ -1,10 +1,5 @@
-# @datatype_void
-
 # Ignore Documentation
 docs
-
-# Ignore Node env variables
-config/config.json
 
 # Ignore file-loader directory
 res
@@ -73,5 +68,11 @@ npm-debug.log
 
 # Temporary Files #
 .tmp
+.tscache
 .sass-cache
 *.swp
+
+.baseDir.ts
+.baseDir.d.ts
+.baseDir.js
+.baseDir.js.map
