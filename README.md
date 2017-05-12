@@ -42,7 +42,7 @@ See `config.json` and set the `ENV` field to `development`, `testing` or `produc
     * Request body: `{ "title": string }`
 * GET /movies
     * Fetches list of all movies already present in application database.
-    * Optional params: `sortBy = string`, `desc = boolean`
+    * Optional params: `sortby = string`, `desc = boolean`
 * POST /comments
     * Adds a comment to given movie id
     * Request body: `{ "movie": string, "content": string }`

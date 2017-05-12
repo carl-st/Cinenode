@@ -26,8 +26,8 @@ module Route {
                 (req: express.Request,
                  res: express.Response,
                  next: express.NextFunction) => {
-                    if (req.query.field) {
-                        let sortBy = req.query.sortBy;
+                    if (req.query.sortby) {
+                        let sortBy = req.query.sortby;
                         let desc = req.query.desc;
                         super.getAllSortedByField(req, res, next, sortBy, desc);
                     } else {
