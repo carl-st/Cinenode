@@ -13,9 +13,9 @@ module.exports = function (grunt) {
           },
           {
             expand: true,
-            cwd: "./views",
+            cwd: "./src/views",
             src: ["**"],
-            dest: "./dist/views"
+            dest: "./dist/src/views"
           },
           {
             expand: true,
@@ -59,7 +59,7 @@ module.exports = function (grunt) {
         tasks: ["ts", "tslint"]
       },
       views: {
-        files: ["views/**/*.pug"],
+        files: ["/src/views/**/*.pug"],
         tasks: ["copy"]
       }
     },
@@ -77,10 +77,10 @@ module.exports = function (grunt) {
       test: {
         options: {
           reporter: 'spec',
-          captureFile: 'results.txt', // Optionally capture the reporter output to a file
-          quiet: false, // Optionally suppress output to standard out (defaults to false)
-          clearRequireCache: false, // Optionally clear the require cache before running tests (defaults to false)
-          noFail: false // Optionally set to not fail on failed tests (will still fail on other errors)
+          captureFile: 'results.txt',
+          quiet: false,
+          clearRequireCache: false,
+          noFail: false
         },
         src: ["dist/src/tests/\*\*/\*.js"]
       }
