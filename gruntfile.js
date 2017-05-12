@@ -69,7 +69,7 @@ module.exports = function (grunt) {
       },
       dev: {
         options: {
-          script: './config/server.conf.js'
+          script: './dist/config/server.conf.js'
         }
       }
     },

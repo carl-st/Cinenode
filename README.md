@@ -1,5 +1,7 @@
-# Cinenode
+# Cinenode [![CircleCI](https://circleci.com/gh/carl-st/Cinenode/tree/master.svg?style=svg&circle-token=ab573641d88bafcb8c96f225dc9edabe6fcaf4cd)](https://circleci.com/gh/carl-st/Cinenode/tree/master)
 Example of a simple Node.js application with Express and MongoDB.
+
+App is hosted on [Heroku](https://cinenode.herokuapp.com)
  
 ## Setup ##
 **Make sure you have the newest Node and NPM already installed.**
@@ -10,7 +12,7 @@ $ npm install
 ```
 ### Build application
 ```bash
-$ npm grunt
+$ npm run grunt
 ```
 
 ### Start Express back-end

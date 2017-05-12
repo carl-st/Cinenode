@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 "use strict";
 
-let server = require("../dist/src/server");
+let server = require("../src/server");
 let debug = require("debug")("express:server");
 let http = require("http");
 
-let envConf = require("../dist/config/env.conf");
+let envConf = require("../config/env.conf");
 
 envConf.validateEnvVariables();
 

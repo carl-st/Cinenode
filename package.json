@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development nodemon ./config/server.conf",
     "grunt": "grunt",
-    "start": "node ./config/server.conf",
+    "start": "node ./dist/config/server.conf",
     "test": "grunt test"
   },
   "repository": {
