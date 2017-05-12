@@ -1,3 +1,8 @@
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: cinenode
 test:
   override:
     - npm test
