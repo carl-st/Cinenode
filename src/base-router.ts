@@ -100,7 +100,7 @@ export class BaseRouter {
                      dataModel: any) {
         this.model.create(dataModel, (err, item) => {
             if (err) {
-                res.send(err);
+                res.status(400).send(err);
             } else {
                 res.json(item);
                 console.log(`Item created: ${item}`);

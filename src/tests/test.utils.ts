@@ -10,16 +10,14 @@ export function connectAndClean(done: any) {
         for (let i in mongoose.connection.collections) {
 
             if (mongoose.connection.collections) {
-                mongoose.connection.collections[i].remove(function() {
-                    console.log("removed");
-                });
+                mongoose.connection.collections[i].remove({});
             }
         }
         return done();
     }
 
     if (mongoose.connection.readyState === 0) {
-        mongoose.connect("mongodb://localhost:27017/test", function (err: any) {
+        mongoose.connect("mongodb://localhost:27017/cinenode", function (err: any) {
             if (err) {
                 throw err;
             }

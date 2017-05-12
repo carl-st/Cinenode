@@ -17,6 +17,5 @@ export default (app: express.Application) => {
     // All of routes will be prefixed with /api
     app.use("/api", router);
 
-    //use router middleware
     app.use(router);
 };

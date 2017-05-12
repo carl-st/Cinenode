@@ -9,6 +9,7 @@ import Movie = movie.Movie;
 import Caller = require("nodecaller");
 
 const BASE_URI = "/movies";
+const OMDB_URL = "http://www.omdbapi.com/";
 
 module Route {
 
@@ -51,7 +52,7 @@ module Route {
                                   next: express.NextFunction,
                                   body: any) {
             let titleWithPluses = body.title.split(" ").join("+");
-            let caller = new Caller("http://www.omdbapi.com/");
+            let caller = new Caller(OMDB_URL);
             caller.get({"t": titleWithPluses}, (result, next) => {
                 let body: any = result.body;
 
@@ -66,7 +67,6 @@ module Route {
                 }
 
                 let movie = new Movie(body);
-                console.log(body);
                 super.findByTitleAndCreateOrUpdate(req, res, next, body.title, movie);
             });
             caller.run();

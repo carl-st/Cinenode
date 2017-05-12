@@ -1,4 +1,4 @@
-# Cinenode [![CircleCI](https://circleci.com/gh/carl-st/Cinenode/tree/develop.svg?style=svg&circle-token=ab573641d88bafcb8c96f225dc9edabe6fcaf4cd)](https://circleci.com/gh/carl-st/Cinenode/tree/develop)
+# Cinenode
 Example of a simple Node.js application with Express and MongoDB.
  
 ## Setup ##

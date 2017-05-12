@@ -16,19 +16,21 @@ let caller = new Caller(path);
 let chai = require("chai");
 chai.should();
 
+
 let data = {
-    content: "I am Groot",
+    movie: "59135336d609e14cf9698396",
+    content: "I am Groot."
 };
 
 let comment: Comment = new Comment(data);
 
 describe("Comment Tests", function () {
 
-    beforeEach(function (done: any) {
+    before(function (done: any) {
         utils.connectAndClean(done);
     });
 
-    afterEach(function (done: any) {
+    after(function (done: any) {
         utils.disconnect(done);
     });
 
@@ -43,11 +45,12 @@ describe("Comment Tests", function () {
     });
 
     describe("Comment API Unit Tests", function () {
-        it("should show all comments", function (done: any) {
-            caller.get((result, next) => {
-                let exists = result.body[0].content.should.exist;
+        it("should not be able to add comment without movie id", function (done: any) {
+            caller.post({
+                content: "That dude there. I need his prosthetic leg."
+            }, (result, next) => {
                 next();
-            }, 200);
+            }, 400);
             caller.run(done);
         });
     });

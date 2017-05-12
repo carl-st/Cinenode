@@ -14,7 +14,6 @@ let path = "http://localhost:8080/api/movies";
 let caller = new Caller(path);
 
 let chai = require("chai");
-// chai.should();
 var expect = chai.expect;
 
 let data = {
@@ -26,11 +25,11 @@ let movie: Movie = new Movie(data);
 
 describe("Movie Tests", function () {
 
-    beforeEach(function (done: any) {
+    before(function (done: any) {
         utils.connectAndClean(done);
     });
 
-    afterEach(function (done: any) {
+    after(function (done: any) {
         utils.disconnect(done);
     });
 
@@ -64,7 +63,6 @@ describe("Movie Tests", function () {
             caller.run(done);
         });
     });
-
 
 });
 
