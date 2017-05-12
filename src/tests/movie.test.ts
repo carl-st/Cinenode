@@ -14,7 +14,7 @@ let path = "http://localhost:8080/api/movies";
 let caller = new Caller(path);
 
 let chai = require("chai");
-var expect = chai.expect;
+let expect = chai.expect;
 
 let data = {
     title: "Guardians of the Galaxy",

@@ -14,7 +14,7 @@ let path = "http://localhost:8080/api/comments";
 let caller = new Caller(path);
 
 let chai = require("chai");
-chai.should();
+let expect = chai.expect;
 
 
 let data = {
@@ -37,9 +37,7 @@ describe("Comment Tests", function () {
     describe("Comment Model Unit Tests", function () {
         it("should be able to save comment without problems", function () {
             comments.create(comment, function (err: any, result: any) {
-                let exists = err.should.not.exist;
-                exists = result._id.should.exist;
-                result.content.should.equal(comment.content);
+                expect(result.content).to.equal(data.content);
             });
         });
     });
